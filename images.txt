@@ -1,0 +1,6 @@
+bluey.png,Bluey
+pooh.jpeg,Pooh
+snoopy.jpg,Snoopy and Woodstock
+peppa.png,Peppa Pig
+stitch.jpg,Stitch
+mickey.jpg,Mickey Mouse
