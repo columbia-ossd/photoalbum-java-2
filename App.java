@@ -18,6 +18,9 @@ public class App {
 			else if (option == 2) {
 				viewPhoto(a);
 			}
+			else if (option == 3) {
+				editPhoto(a);
+			}
 			else if (option != 0) {
 				System.out.println("Invalid option");
 			}
@@ -29,6 +32,7 @@ public class App {
 	public static int showMenu() {
 		System.out.println("1: List all photos\n" + 
 				"2: View a photo\n" + 
+				"3: Edit a photo's description\n" +
 				"0: Exit");
 		System.out.print("Choose an option: ");
 		Scanner in = new Scanner(System.in);
@@ -55,6 +59,32 @@ public class App {
 		}
 		else {
 			showPhoto(a.getFilename(choice-1));
+		}
+	}
+
+	private static void editPhoto(Album a) {
+		for (int i = 0; i < a.getNumPhotos(); i++) {
+			System.out.println((i+1) + ": " + a.getDescription(i));
+		}
+		System.out.print("Enter number: ");
+		Scanner in = new Scanner(System.in);
+
+		int choice = in.nextInt();
+		in.nextLine(); // consume the rest of the line after the number
+
+		if (choice <= 0 || choice > a.getNumPhotos()) {
+			System.out.println("Invalid selection");
+		}
+		else {
+			System.out.print("Enter new description: ");
+			String newDescription = in.nextLine();
+
+			if (a.editDescription(choice-1, newDescription)) {
+				System.out.println("Description updated");
+			}
+			else {
+				System.out.println("Could not update description");
+			}
 		}
 	}
 
