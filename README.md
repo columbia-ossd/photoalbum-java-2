@@ -19,6 +19,6 @@ The file "images.txt" contains the listing of photos and their info.
 Please do not commit .class files to the repo! You should only commit .java files.
 
 # Communication
-The Slack channel for this project is _#photoalbum-java-1_
+The Slack channel for this project is _#photoalbum-java-2_
 
 Please use that channel for communicating with other contributors.
