@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import java.io.File;
+
 
 public class App {
 
@@ -21,6 +23,9 @@ public class App {
 			else if (option == 3) {
 				editPhoto(a);
 			}
+			else if (option == 4) {
+				addPhoto(a);
+			}
 			else if (option != 0) {
 				System.out.println("Invalid option");
 			}
@@ -33,6 +38,7 @@ public class App {
 		System.out.println("1: List all photos\n" + 
 				"2: View a photo\n" + 
 				"3: Edit a photo's description\n" +
+				"4: Add a photo\n" +
 				"0: Exit");
 		System.out.print("Choose an option: ");
 		Scanner in = new Scanner(System.in);
@@ -87,6 +93,37 @@ public class App {
 			}
 		}
 	}
+
+	private static void addPhoto(Album a){
+		Scanner in = new Scanner(System.in);
+		String filename  = "";
+		String description = "";
+
+		while(filename.trim().equals("")){
+			System.out.print("Enter image filename:");
+			filename = in.nextLine();
+		}
+
+		File image = new File(filename);
+		if (!image.exists()){
+			System.out.println("Not Found");
+			return;
+		}
+
+		while (description.trim().equals("")){
+			System.out.print("Enter description:");
+			description = in.nextLine();
+
+		}
+
+		Photo p = new Photo(filename,description);
+		a.addPhoto(p);
+
+		System.out.println("Successfully Added");
+
+	}
+
+
 
 	/*
 	 * This method can be used to show a single photo.

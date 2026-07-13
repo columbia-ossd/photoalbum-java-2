@@ -29,6 +29,12 @@ public class Album {
 	public ArrayList<Photo> getPhotos() { return photos; }
 	
 	public int getNumPhotos() { return photos.size(); }
+
+	public boolean addPhoto(Photo p){
+		photos.add(p);
+		save();
+		return true;
+	}
 	
 	public String getDescription(int index) {
 		if (index < 0 || index >= photos.size()) return "";
